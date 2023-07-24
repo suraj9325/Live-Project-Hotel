@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
     <style>
-       *{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,7 +40,7 @@ nav .navbar{
 }
 .navbar .logo a{
   font-size: 30px;
-  color:red;
+  color: black;
   text-decoration: none;
   font-weight: 600;
 }
@@ -63,7 +63,7 @@ nav .navbar .links li a{
   height: 100%;
   text-decoration: none;
   white-space: nowrap;
-  color: #fff;
+  color: white;
   font-size: 15px;
   font-weight: 500;
 }
@@ -78,7 +78,7 @@ nav .navbar .links li .arrow{
   line-height: 70px;
   text-align: center;
   display: inline-block;
-  color: red;
+  color: black;
   transition: all 0.3s ease;
 }
 nav .navbar .links li .sub-menu{
@@ -101,7 +101,7 @@ nav .navbar .links li:hover .js-sub-menu{
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .navbar .links li .sub-menu a{
-  color: #fff;
+  color: black;
   font-size: 15px;
   font-weight: 500;
 }
@@ -122,7 +122,64 @@ nav .navbar .links li:hover .js-sub-menu{
 .links li .sub-menu .more:hover .more-sub-menu{
   display: block;
 }
-
+.navbar .search-box{
+  position: relative;
+   height: 40px;
+  width: 40px;
+}
+.navbar .search-box i{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  font-size: 22px;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.navbar .search-box .input-box{
+  position: absolute;
+  right: calc(100% - 40px);
+  top: 80px;
+  height: 60px;
+  width: 300px;
+  background: black;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+.navbar.showInput .search-box .input-box{
+  top: 65px;
+  opacity: 1;
+  pointer-events: auto;
+  background: black;
+}
+.search-box .input-box::before{
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: black;
+  right: 10px;
+  top: -6px;
+  transform: rotate(45deg);
+}
+.search-box .input-box input{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  height: 35px;
+  width: 280px;
+  outline: none;
+  padding: 0 15px;
+  font-size: 16px;
+  border: none;
+}
 .navbar .nav-links .sidebar-logo{
   display: none;
 }
@@ -173,21 +230,80 @@ nav .navbar .links li:hover .js-sub-menu{
   }
   .sidebar-logo .logo-name{
     font-size: 25px;
-    color: #fff;
+    color: black;
   }
-  video{
-    object-fit: fill;
+    .sidebar-logo  i,
+    .navbar .bx-menu{
+      font-size: 25px;
+      color: black;
+    }
+  nav .navbar .links{
+    display: block;
+    margin-top: 20px;
   }
- 
-
- 
-
+  nav .navbar .links li .arrow{
+    line-height: 40px;
   }
-   @media (max-width:370px){
-   nav .navbar .nav-links{
-   max-width: 100%;
-   }
+nav .navbar .links li{
+    display: block;
   }
+nav .navbar .links li .sub-menu{
+  position: relative;
+  top: 0;
+  box-shadow: none;
+  display: none;
+}
+nav .navbar .links li .sub-menu li{
+  border-bottom: none;
+}
+.navbar .links li .sub-menu .more-sub-menu{
+  display: none;
+  position: relative;
+  left: 0;
+}
+.navbar .links li .sub-menu .more-sub-menu li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links li:hover .htmlcss-arrow,
+.links li:hover .js-arrow{
+  transform: rotate(0deg);
+  }
+  .navbar .links li .sub-menu .more-sub-menu{
+    display: none;
+  }
+  .navbar .links li .sub-menu .more span{
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+  }
+  .links li .sub-menu .more:hover .more-sub-menu{
+    display: none;
+  }
+  nav .navbar .links li:hover .htmlCss-sub-menu,
+  nav .navbar .links li:hover .js-sub-menu{
+    display: none;
+  }
+.navbar .nav-links.show1 .links .htmlCss-sub-menu,
+  .navbar .nav-links.show3 .links .js-sub-menu,
+  .navbar .nav-links.show2 .links .more .more-sub-menu{
+      display: block;
+    }
+    .navbar .nav-links.show1 .links .htmlcss-arrow,
+    .navbar .nav-links.show3 .links .js-arrow{
+        transform: rotate(180deg);
+}
+    .navbar .nav-links.show2 .links .more-arrow{
+      transform: rotate(90deg);
+    }
+}
+@media (max-width:370px){
+  nav .navbar .nav-links{
+  max-width: 100%;
+} 
+}
     </style>
   </head>
     <body>
